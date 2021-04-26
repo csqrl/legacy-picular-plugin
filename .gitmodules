@@ -1,0 +1,27 @@
+[submodule "packages/roact"]
+	path = packages/roact
+	url = https://github.com/Roblox/roact
+[submodule "packages/rodux"]
+	path = packages/rodux
+	url = https://github.com/Roblox/rodux
+[submodule "packages/roact-rodux"]
+	path = packages/roact-rodux
+	url = https://github.com/Roblox/roact-rodux
+[submodule "packages/flipper"]
+	path = packages/flipper
+	url = https://github.com/Reselim/flipper
+[submodule "packages/colour-utils"]
+	path = packages/colour-utils
+	url = https://github.com/ClockworkSquirrel/colour-utils
+[submodule "packages/llama"]
+	path = packages/llama
+	url = https://github.com/Frelerik/llama
+[submodule "packages/roact-inheritedcontext"]
+	path = packages/roact-inheritedcontext
+	url = https://github.com/ClockworkSquirrel/roact-inheritedcontext
+[submodule "packages/roact-router"]
+	path = packages/roact-router
+	url = https://github.com/ClockworkSquirrel/roact-router
+[submodule "packages/testez"]
+	path = packages/testez
+	url = https://github.com/Roblox/testez

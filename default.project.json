@@ -1,0 +1,33 @@
+{
+  "name": "PicularPlugin",
+  "tree": {
+    "$path": "src",
+    "Packages": {
+      "$className": "Folder",
+      "ColourUtils": {
+        "$path": "packages/colour-utils/src"
+      },
+      "Flipper": {
+        "$path": "packages/flipper/src"
+      },
+      "Llama": {
+        "$path": "packages/llama/src"
+      },
+      "Roact": {
+        "$path": "packages/roact/src"
+      },
+      "InheritedContext": {
+        "$path": "packages/roact-inheritedcontext/src"
+      },
+      "RoactRodux": {
+        "$path": "packages/roact-rodux/src"
+      },
+      "RoactRouter": {
+        "$path": "packages/roact-router/src"
+      },
+      "Rodux": {
+        "$path": "packages/rodux/src"
+      }
+    }
+  }
+}

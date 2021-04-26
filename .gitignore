@@ -1,0 +1,12 @@
+# Project files
+*.rbxlx
+*.rbxl
+*.rbxmx
+*.rbxm
+
+# Roblox Studio lock files
+*.rbxlx.lock
+*.rbxl.lock
+
+# Linting
+roblox.toml
