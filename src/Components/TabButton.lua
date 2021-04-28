@@ -1,4 +1,4 @@
-local Root = script.Parent.Parent.Parent
+local Root = script.Parent.Parent
 local Components = Root.Components
 
 local Roact: Roact = require(Root.Packages.Roact)
@@ -25,7 +25,7 @@ Component.defaultProps = {
 }
 
 local function createBorder(edge: Enum.NormalId, colour: Color3): RoactElement
-    local anchor: Vector2, position: UDim2, size: UDim2, zindex: number = nil, nil, nil, 1
+    local anchor: Vector2, position: UDim2, size: UDim2, zindex: number = nil, nil, nil, 10
 
     if edge == Enum.NormalId.Left then
         size = UDim2.new(0, 2, 1, 0)
@@ -39,7 +39,7 @@ local function createBorder(edge: Enum.NormalId, colour: Color3): RoactElement
         size = UDim2.new(1, 0, 0, 2)
     elseif edge == Enum.NormalId.Top then
         size = UDim2.new(1, 0, 0, 2)
-        zindex = 10
+        zindex = 1
     end
 
     return e("Frame", {

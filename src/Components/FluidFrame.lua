@@ -96,13 +96,13 @@ function Component:render()
         BackgroundTransparency = 1,
         Size = UDim2.fromScale(1, 1),
     }, {
-        Layout = e("UIListLayout", {
+        layout = e("UIListLayout", {
             Padding = UDim.new(0, props.spacing),
             FillDirection = config.fillDirection,
             SortOrder = Enum.SortOrder.LayoutOrder,
         }),
 
-        FixedFrame = e("Frame", {
+        fixedFrame = e("Frame", {
             AutomaticSize = config.automaticSize,
             BackgroundTransparency = 1,
             Size = config.fixedSize,
@@ -112,7 +112,7 @@ function Component:render()
             [Roact.Change.AbsoluteSize] = self.onFixedSizeChanged,
         }, props.fixedItems),
 
-        FluidFrame = e("Frame", {
+        fluidFrame = e("Frame", {
             BackgroundTransparency = 1,
             Size = config.fluidSize,
             LayoutOrder = 20,

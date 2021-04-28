@@ -1,4 +1,4 @@
-return function(callback, ...)
+local function bind(callback, ...)
     local initArgs = {...}
 
     return function(...)
@@ -11,3 +11,5 @@ return function(callback, ...)
         return callback(table.unpack(newArgs))
     end
 end
+
+return bind

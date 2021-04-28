@@ -54,8 +54,8 @@ function Component:render()
             title = Config.PluginName,
             id = fmt("%s:%s", Config.UUID, "widget"),
 
-            floatSize = Vector2.new(300, 450),
-            minSize = Vector2.new(295, 235),
+            floatSize = Vector2.new(308, 450),
+            minSize = Vector2.new(298, 235),
 
             onInit = function(enabled: boolean)
                 self:setState({ active = enabled })
