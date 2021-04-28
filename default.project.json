@@ -11,7 +11,10 @@
         "$path": "packages/flipper/src"
       },
       "Llama": {
-        "$path": "packages/llama/src"
+        "$path": "packages/llama/src",
+        "t": {
+          "$path": "packages/llama/modules/t/lib"
+        }
       },
       "Roact": {
         "$path": "packages/roact/src"
