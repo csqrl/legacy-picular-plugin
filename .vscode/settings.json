@@ -6,5 +6,9 @@
     "todo-tree.regex.regex": "((--|//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
     "todo-tree.filtering.excludeGlobs": [
         "**/packages"
-    ]
+    ],
+
+    "git.ignoreSubmodules": true,
+    "git.autoRepositoryDetection": "openEditors",
+    "git.detectSubmodules": false
 }
