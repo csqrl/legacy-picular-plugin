@@ -1,7 +1,7 @@
 local plugin = script:FindFirstAncestorOfClass("Plugin")
 local Root = script.Parent
 
-local Config = require(Root.Data.Config)
+local Config = require(Root.Config)
 local keyPrefix = Config.Storage
 
 local DEFAULT_SETTINGS = {

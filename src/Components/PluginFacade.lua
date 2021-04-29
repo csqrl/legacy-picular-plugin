@@ -3,7 +3,7 @@ local Components = Root.Components
 
 local Roact: Roact = require(Root.Packages.Roact)
 local Resources = require(Root.Data.Resources)
-local Config = require(Root.Data.Config)
+local Config = require(Root.Config)
 
 local StudioTheme = require(Components.StudioTheme)
 local StudioPlugin = require(Components.StudioPlugin)
