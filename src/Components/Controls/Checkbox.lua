@@ -6,7 +6,6 @@ local Flipper = require(Root.Packages.Flipper)
 
 local StudioTheme = require(Components.StudioTheme)
 local Icon = require(Components.Icon)
-local TextLabel = require(Components.TextLabel)
 local Section = require(Components.Section)
 
 local e = Roact.createElement
@@ -167,42 +166,7 @@ function Component:render()
                     PaddingLeft = UDim.new(0, styles.spacing),
                     PaddingRight = UDim.new(0, styles.spacing),
                 }),
-            }),
-
-            -- labels = e("Frame", {
-            --     AutomaticSize = Enum.AutomaticSize.Y,
-            --     BackgroundTransparency = 1,
-            --     LayoutOrder = 200,
-            --     Size = UDim2.new(1, -(24 + (styles.spacing * .5)), 0, 24),
-            -- }, {
-            --     padding = e("UIPadding", {
-            --         PaddingLeft = UDim.new(0, styles.spacing),
-            --         PaddingRight = UDim.new(0, styles.spacing),
-            --     }),
-
-            --     layout = e("UIListLayout", {
-            --         FillDirection = Enum.FillDirection.Vertical,
-            --         Padding = UDim.new(0, styles.spacing * .5),
-            --         HorizontalAlignment = Enum.HorizontalAlignment.Left,
-            --         SortOrder = Enum.SortOrder.LayoutOrder,
-            --         VerticalAlignment = Enum.VerticalAlignment.Center,
-            --     }),
-
-            --     label = self.props.label and e(TextLabel, {
-            --         label = self.props.label,
-            --         colour = "MainText",
-            --         modifier = modifier,
-            --         order = 100,
-            --     }) or nil,
-
-            --     caption = self.props.caption and e(TextLabel, {
-            --         label = self.props.caption,
-            --         colour = "DimmedText",
-            --         modifier = modifier,
-            --         textSize = styles.fontSize - 2,
-            --         order = 200,
-            --     }) or nil,
-            -- }),
+            })
         })
     end)
 end
