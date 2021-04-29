@@ -12,6 +12,7 @@ local Component: RoactComponent = Roact.Component:extend("PageBase")
 Component.defaultProps = {
     gap = 1,
     padding = 1,
+    centre = false,
 }
 
 function Component:init()
@@ -53,8 +54,9 @@ function Component:render()
                 layout = e("UIListLayout", {
                     Padding = UDim.new(0, styles.spacing * self.props.gap),
                     FillDirection = Enum.FillDirection.Vertical,
-                    HorizontalAlignment = Enum.HorizontalAlignment.Left,
+                    HorizontalAlignment = self.props.centre and Enum.HorizontalAlignment.Center or Enum.HorizontalAlignment.Left,
                     SortOrder = Enum.SortOrder.LayoutOrder,
+                    VerticalAlignment = self.props.centre and Enum.VerticalAlignment.Center or Enum.VerticalAlignment.Top,
                 }),
 
                 padding = self.state.scrollVisible and e("UIPadding", {

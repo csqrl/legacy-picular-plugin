@@ -11,6 +11,7 @@ Component.defaultProps = {
     id = nil,
     colour = Color3.new(1, 1, 1),
 
+    anchor = nil,
     size = nil,
     position = nil,
 
@@ -30,8 +31,10 @@ end
 
 function Component:render()
     return e("ImageLabel", {
+        AnchorPoint = self.props.anchor,
         BackgroundTransparency = 1,
         LayoutOrder = self.props.order,
+        Position = self.props.position,
         Size = self.props.size or UDim2.fromOffset(self.icon.W, self.icon.H),
         Image = self.icon.ImageId,
         ImageColor3 = self.props.colour,

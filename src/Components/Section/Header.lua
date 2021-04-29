@@ -11,8 +11,8 @@ local e = Roact.createElement
 local Component: RoactComponent = Roact.Component:extend("SectionHeader")
 
 Component.defaultProps = {
-    title = "Section Title",
-    subtitle = "Section Subtitle",
+    title = nil,
+    subtitle = nil,
 
     boldTitle = true,
     modifier = nil,
@@ -36,9 +36,10 @@ function Component:render()
                 FillDirection = Enum.FillDirection.Vertical,
                 HorizontalAlignment = Enum.HorizontalAlignment.Left,
                 SortOrder = Enum.SortOrder.LayoutOrder,
+                VerticalAlignment = Enum.VerticalAlignment.Center,
             }),
 
-            title = e(TextLabel, {
+            title = self.props.title and e(TextLabel, {
                 colour = "MainText",
                 modifier = self.props.modifier,
                 label = self.props.title,
@@ -46,12 +47,14 @@ function Component:render()
                 order = 10,
             }),
 
-            subtitle = e(TextLabel, {
+            subtitle = self.props.subtitle and e(TextLabel, {
                 colour = "DimmedText",
                 modifier = self.props.modifier,
                 label = self.props.subtitle,
                 order = 20,
             }),
+
+            Roact.createFragment(self.props[Roact.Children]),
         })
     end)
 end

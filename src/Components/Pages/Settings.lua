@@ -8,7 +8,10 @@ local PageBase = require(Components.PageBase)
 local TextLabel = require(Components.TextLabel)
 local Section = require(Components.Section)
 local Divider = require(Components.Divider)
+local PluginSettings = require(Components.PluginSettings)
+local Checkbox = require(Components.Controls.Checkbox)
 
+local bind = require(Root.Util.Bind)
 local e = Roact.createElement
 
 local Component: RoactComponent = Roact.Component:extend("SettingsPage")
@@ -54,6 +57,18 @@ function Component:render()
                     subtitle = "Control what special permissions the plugin can use, and how it uses them. Permission controls are separate from the Roblox Studio prompts.",
                 }),
 
+                autoCheckUpdates = PluginSettings.use(function(settings)
+                    return e(Checkbox, {
+                        order = 100,
+
+                        label = "Automatically Check for Updates",
+                        caption = "Allow the plugin to periodically check Roblox for updates and display a notification banner at the top of the plugin when an update is available.",
+
+                        checked = settings.Get("autoCheckUpdates"),
+                        onClick = bind(settings.Set, "autoCheckUpdates", not settings.Get("autoCheckUpdates")),
+                    })
+                end),
+
                 divider = e(Divider, {
                     order = 200,
                 }),
@@ -66,6 +81,18 @@ function Component:render()
                     title = "Developer",
                     subtitle = "These settings relate to the development of the plugin, and can usually be left at default settings for standard users."
                 }),
+
+                logging = PluginSettings.use(function(settings)
+                    return e(Checkbox, {
+                        order = 100,
+
+                        label = "Enable Logging",
+                        caption = "Print status messages to the output window.",
+
+                        checked = settings.Get("devLogging"),
+                        onClick = bind(settings.Set, "devLogging", not settings.Get("devLogging")),
+                    })
+                end),
 
                 divider = e(Divider, {
                     order = 200,
