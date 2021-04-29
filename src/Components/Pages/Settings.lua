@@ -3,6 +3,7 @@ local Components = Root.Components
 
 local Roact: Roact = require(Root.Packages.Roact)
 local RoactRouter = require(Root.Packages.RoactRouter)
+local Config = require(Root.Data.Config)
 
 local PageBase = require(Components.PageBase)
 local TextLabel = require(Components.TextLabel)
@@ -13,6 +14,7 @@ local Checkbox = require(Components.Controls.Checkbox)
 
 local bind = require(Root.Util.Bind)
 local e = Roact.createElement
+local fmt = string.format
 
 local Component: RoactComponent = Roact.Component:extend("SettingsPage")
 
@@ -104,7 +106,7 @@ function Component:render()
             }, {
                 about = e(Section.Header, {
                     title = "About Plugin",
-                    subtitle = "Version: 0.0.0",
+                    subtitle = fmt("Version: %s", Config.Version),
                 }),
 
                 updates = e(Section.Container, {
