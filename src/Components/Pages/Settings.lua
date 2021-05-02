@@ -3,7 +3,7 @@ local Components = Root.Components
 
 local Roact: Roact = require(Root.Packages.Roact)
 local RoactRouter = require(Root.Packages.RoactRouter)
-local Config = require(Root.Data.Config)
+local Config = require(Root.Config)
 
 local PageBase = require(Components.PageBase)
 local TextLabel = require(Components.TextLabel)

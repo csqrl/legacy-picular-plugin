@@ -2,7 +2,7 @@ local Root = script.Parent.Parent
 
 local Roact: Roact = require(Root.Packages.Roact)
 
-local PluginSettings = require(Root.PluginSettings)
+local PluginSettings = require(Root.Services.PluginSettings)
 
 local e = Roact.createElement
 

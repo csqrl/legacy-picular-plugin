@@ -1,8 +1,11 @@
 local plugin = script:FindFirstAncestorOfClass("Plugin")
-local Root = script.Parent
+local Root = script.Parent.Parent
 
 local Config = require(Root.Config)
 local keyPrefix = Config.Storage
+
+local LoggerUtil = require(Root.Services.Logger)
+local logger = LoggerUtil.new(script)
 
 local DEFAULT_SETTINGS = {
     colourCodes = "RGB",
@@ -44,6 +47,7 @@ function PluginSettings.Set(key: string, value: any)
     local persistKey = FormatKey(key)
 
     plugin:SetSetting(persistKey, value)
+    logger:print(string.format("Set key %q with value %q", key, tostring(value)))
 
     PluginSettings._event:Fire(key, value)
 end

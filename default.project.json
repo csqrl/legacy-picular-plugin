@@ -30,6 +30,9 @@
       },
       "Rodux": {
         "$path": "packages/rodux/src"
+      },
+      "Semver": {
+        "$path": "packages/semver/src"
       }
     }
   }

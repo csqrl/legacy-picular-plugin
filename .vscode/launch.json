@@ -7,6 +7,13 @@
             "request": "launch",
             "script": "${workspaceFolder}/scripts/test.ps1",
             "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "PluginDebugService",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/scripts/dev.ps1",
+            "cwd": "${workspaceFolder}"
         }
     ]
 }

@@ -70,7 +70,7 @@ function Component:didUpdate(prevProps)
 
         self.motor:setGoal(Flipper.Spring.new(state, {
             frequency = 5,
-            dampingRatio = .3,
+            dampingRatio = self.props.checked and .3 or 2,
         }))
     end
 end
