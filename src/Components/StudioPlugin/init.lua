@@ -3,5 +3,5 @@ return {
     Toolbar = require(script.Toolbar),
     Widget = require(script.Widget),
 
-    Context = require(script.Context),
+    Contexts = require(script.Contexts),
 }

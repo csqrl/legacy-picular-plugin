@@ -1,27 +1,27 @@
-local Root = script.Parent.Parent.Parent
+local PluginRoot = script:FindFirstAncestor("PicularPlugin")
 
-local Roact: Roact = require(Root.Packages.Roact)
-local Llama = require(Root.Packages.Llama)
+local Roact: Roact = require(PluginRoot.Packages.Roact)
+local Llama = require(PluginRoot.Packages.Llama)
 
-local Context = require(script.Parent.Context)
+local Contexts = require(script.Parent.Contexts)
 
 local e = Roact.createElement
 
-local Component: RoactComponent = Roact.Component:extend("PluginToolbarButton")
+local Component = Roact.Component:extend("PluginToolbarButton")
 
 Component.defaultProps = {
-    toolbar = nil,
+    toolbar = nil, -- PluginToolbar
 
-    id = nil,
-    tooltip = nil,
-    icon = nil,
-    label = nil,
-    alwaysAvailable = true,
+    id = nil, -- string
+    tooltip = nil, -- string
+    icon = nil, -- string
+    label = nil, -- string
 
-    enabled = true,
-    active = false,
+    alwaysAvailable = true, -- boolean
+    enabled = true, -- boolean
+    active = false, -- boolean
 
-    onClick = nil,
+    onClick = nil, -- callback(void)
 }
 
 function Component:init()
@@ -35,6 +35,7 @@ function Component:init()
     )
 
     self.button.ClickableWhenViewportHidden = self.props.alwaysAvailable
+    self.button:SetActive(self.props.active)
 
     self.button.Click:Connect(function()
         if type(self.props.onClick) == "function" then
@@ -55,20 +56,24 @@ function Component:didUpdate(prevProps)
     if prevProps.active ~= self.props.active then
         self.button:SetActive(self.props.active)
     end
+
+    if prevProps.alwaysAvailable ~= self.props.alwaysAvailable then
+        self.button.ClickableWhenViewportHidden = self.props.alwaysAvailable
+    end
 end
 
 function Component:render()
     return nil
 end
 
-function Component.wrap(props)
-    return e(Context.Toolbar.Consumer, {
+return function(props)
+    props = props or {}
+
+    return e(Contexts.Toolbar.Consumer, {
         render = function(toolbar: PluginToolbar)
             return e(Component, Llama.Dictionary.merge(props, {
                 toolbar = toolbar,
             }))
-        end
+        end,
     })
 end
-
-return Component.wrap

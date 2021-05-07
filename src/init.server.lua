@@ -1,12 +1,17 @@
-local Roact: Roact = require(script.Packages.Roact)
+local Components = script.Components
+local Packages = script.Packages
 
-local PluginFacade: RoactComponent = require(script.Components.PluginFacade)
-local FacadeElement: RoactElement = Roact.createElement(PluginFacade, {
-    plugin = plugin,
-})
+local Roact: Roact = require(Packages.Roact)
+local PluginFacade: RoactComponent = require(Components.PluginCore.PluginFacade)
 
-local RoactHandle: RoactTree = Roact.mount(FacadeElement, nil, "PicularPluginHandle")
+local FacadeHandle: RoactTree = Roact.mount(
+    Roact.createElement(PluginFacade, {
+        plugin = plugin,
+    }),
+    nil,
+    "PicularPluginHandle"
+)
 
 plugin.Unloading:Connect(function()
-    Roact.unmount(RoactHandle)
+    Roact.unmount(FacadeHandle)
 end)

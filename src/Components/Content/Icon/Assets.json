@@ -1,0 +1,86 @@
+{
+    "FillBucket": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 4,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "MoreDots": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 24,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "Pin": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 44,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "Search": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 64,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "Palette": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 84,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "Settings": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 104,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "ImportCloud": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 124,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "CaretDown": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 144,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "Pencil": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 164,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "Share": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 184,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "DeleteBin": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 204,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    },
+    "Tick": {
+        "AssetId": "rbxassetid://6731741260",
+        "X": 224,
+        "Y": 4,
+        "W": 16,
+        "H": 16
+    }
+}

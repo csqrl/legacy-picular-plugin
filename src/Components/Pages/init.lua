@@ -1,3 +1,3 @@
 return {
-    Settings = require(script.Settings),
+    Search = require(script.Search),
 }

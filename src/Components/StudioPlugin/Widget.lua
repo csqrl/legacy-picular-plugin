@@ -1,28 +1,28 @@
-local Root = script.Parent.Parent.Parent
+local PluginRoot = script:FindFirstAncestor("PicularPlugin")
 
-local Roact: Roact = require(Root.Packages.Roact)
-local Llama = require(Root.Packages.Llama)
+local Roact: Roact = require(PluginRoot.Packages.Roact)
+local Llama = require(PluginRoot.Packages.Llama)
 
-local Context = require(script.Parent.Context)
+local Contexts = require(script.Parent.Contexts)
 
 local e = Roact.createElement
 
 local Component: RoactComponent = Roact.Component:extend("PluginWidget")
 
 Component.defaultProps = {
-    plugin = nil,
+    plugin = nil, -- Plugin
 
-    enabled = false,
-    id = nil,
-    title = nil,
+    enabled = false, -- boolean
+    id = nil, -- string
+    title = nil, -- string
 
-    initDockState = Enum.InitialDockState.Left,
-    overrideEnabledRestore = false,
-    floatSize = Vector2.new(),
-    minSize = Vector2.new(),
+    initDockState = Enum.InitialDockState.Left, -- Enum.InitialDockState
+    overrideEnabledRestore = false, -- boolean
+    floatSize = Vector2.new(), -- Vector2
+    minSize = Vector2.new(), -- Vector2
 
-    onInit = nil,
-    onToggle = nil,
+    onInit = nil, -- callback(boolean)
+    onToggle = nil, -- callback(boolean)
 }
 
 function Component:init()
@@ -67,7 +67,7 @@ function Component:didUpdate(prevProps)
 end
 
 function Component:render()
-    return e(Context.Widget.Provider, {
+    return e(Contexts.Widget.Provider, {
         value = self.widget,
     }, {
         widget = e(Roact.Portal, {
@@ -76,14 +76,14 @@ function Component:render()
     })
 end
 
-function Component.wrap(props)
-    return e(Context.Plugin.Consumer, {
+return function(props)
+    props = props or {}
+
+    return e(Contexts.Plugin.Consumer, {
         render = function(plugin: Plugin)
             return e(Component, Llama.Dictionary.merge(props, {
                 plugin = plugin,
             }))
-        end
+        end,
     })
 end
-
-return Component.wrap

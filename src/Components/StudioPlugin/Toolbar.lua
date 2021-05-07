@@ -1,17 +1,18 @@
-local Root = script.Parent.Parent.Parent
+local PluginRoot = script:FindFirstAncestor("PicularPlugin")
 
-local Roact: Roact = require(Root.Packages.Roact)
-local Llama = require(Root.Packages.Llama)
+local Roact: Roact = require(PluginRoot.Packages.Roact)
+local Llama = require(PluginRoot.Packages.Llama)
 
-local Context = require(script.Parent.Context)
+local Contexts = require(script.Parent.Contexts)
 
 local e = Roact.createElement
 
 local Component: RoactComponent = Roact.Component:extend("PluginToolbar")
 
 Component.defaultProps = {
-    plugin = nil,
-    name = nil,
+    plugin = nil, -- Plugin
+
+    name = nil, -- string
 }
 
 function Component:init()
@@ -31,19 +32,19 @@ function Component:didUpdate(prevProps)
 end
 
 function Component:render()
-    return e(Context.Toolbar.Provider, {
+    return e(Contexts.Toolbar.Provider, {
         value = self.toolbar,
     }, self.props[Roact.Children])
 end
 
-function Component.wrap(props)
-    return e(Context.Plugin.Consumer, {
+return function(props)
+    props = props or {}
+
+    return e(Contexts.Plugin.Consumer, {
         render = function(plugin: Plugin)
             return e(Component, Llama.Dictionary.merge(props, {
                 plugin = plugin,
             }))
-        end
+        end,
     })
 end
-
-return Component.wrap
