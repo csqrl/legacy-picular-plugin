@@ -19,6 +19,7 @@ Component.defaultProps = {
     text = "", -- string
     size = nil, -- UDim2
     position = nil, -- UDim2
+    font = "sans", -- "sans" | "mono"
     fontWeight = "normal", -- "normal" | "bold" | "light"
     transparency = nil, -- number
     alignX = Enum.TextXAlignment.Left, -- Enum.TextXAlignment
@@ -43,10 +44,14 @@ function Component:render()
             textSize = styles.fontSize + self.props.fontSizeOffset
         end
 
-        if self.props.fontWeight == "bold" then
-            font = styles.font.bold
-        elseif self.props.fontWeight == "light" then
-            font = styles.font.light
+        if self.props.font == "mono" then
+            font = styles.font.mono
+        else
+            if self.props.fontWeight == "bold" then
+                font = styles.font.bold
+            elseif self.props.fontWeight == "light" then
+                font = styles.font.light
+            end
         end
 
         return e("TextLabel", {

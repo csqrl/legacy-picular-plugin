@@ -7,6 +7,7 @@ local RoactRouter = require(PluginRoot.Packages.RoactRouter)
 local Styles = require(Components.Styles)
 local Content = require(Components.Content)
 local Controls = require(Components.Controls)
+local Bespoke = require(Components.Bespoke)
 
 local e = Roact.createElement
 
@@ -28,12 +29,7 @@ function Component:render()
                             BorderSizePixel = 0,
                         }, {
                             padding = e(Styles.UIPadding),
-
-                            input = e(Controls.TextInput, {
-                                placeholder = "Search for anything...",
-                                iconId = "Search",
-                                size = UDim2.new(1, 0, 0, 36),
-                            }),
+                            input = e(Bespoke.PicularSearchBar),
                         }),
                     },
                 }, {
@@ -43,10 +39,7 @@ function Component:render()
                         direction = "y",
 
                         fixedItems = {
-                            smartfillBanner = e(Content.Paper, {
-                                colour = theme:GetColor("Titlebar"),
-                                size = UDim2.new(1, 0, 0, 36),
-                            }),
+                            smartfillBanner = e(Bespoke.SmartFillBanner),
                         },
                     }, {
                         content = e(Content.ScrollFrame, nil, {

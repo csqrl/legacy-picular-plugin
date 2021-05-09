@@ -19,6 +19,7 @@ Component.defaultProps = {
             light = Enum.Font.Gotham,
             default = Enum.Font.Gotham,
             bold = Enum.Font.GothamBold,
+            mono = Enum.Font.Code,
         },
     },
 }

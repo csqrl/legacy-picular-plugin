@@ -34,7 +34,7 @@ return function(props)
             ]
         end
 
-        if type(props.direction) == "string" then
+        if type(direction) == "string" then
             direction = Enum.FillDirection[
                 table.find({ "h", "x", "horizontal" }, direction) and "Horizontal" or "Vertical"
             ]
