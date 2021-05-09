@@ -38,7 +38,7 @@ function Component:render()
                     }, {
                         search = e(Pages.Search),
                         -- palettes = e(Pages.Palettes),
-                        -- settings = e(Pages.Settings),
+                        settings = e(Pages.Settings),
                     }),
                 }),
             }),

@@ -18,11 +18,29 @@ Component.defaultProps = {
     autoSize = nil, -- Enum.AutomaticSize
     transparency = 0, -- number
     corners = true, -- boolean
+
+    clickable = false, -- boolean
+    onClick = nil, -- callback
 }
 
+function Component:init()
+    self.onClick = function(...)
+        if self.props.clickable and type(self.props.onClick) == "function" then
+            self.props.onClick(...)
+        end
+    end
+end
+
 function Component:render()
-    return e("Frame", {
+    local autoButtonColor = nil
+
+    if self.props.clickable == true then
+        autoButtonColor = false
+    end
+
+    return e(self.props.clickable and "ImageButton" or "Frame", {
         AutomaticSize = self.props.autoSize,
+        AutoButtonColor = autoButtonColor,
         BackgroundColor3 = self.props.colour,
         BackgroundTransparency = self.props.transparency,
         BorderSizePixel = 0,
@@ -31,6 +49,9 @@ function Component:render()
         Position = self.props.position,
         AnchorPoint = self.props.anchor,
         LayoutOrder = self.props.order,
+
+        Image = self.props.clickable and "" or nil,
+        [Roact.Event.Activated] = self.props.clickable and self.onClick or nil,
     }, {
         borderRadius = self.props.corners and e(Styles.UICorner) or nil,
         content = Roact.createFragment(self.props[Roact.Children]),

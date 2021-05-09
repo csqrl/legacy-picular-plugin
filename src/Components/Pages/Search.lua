@@ -33,7 +33,7 @@ function Component:render()
                         }),
                     },
                 }, {
-                    padding = e(Styles.UIPadding, { styles.spacing }),
+                    padding = e(Styles.UIPadding),
 
                     contentContainer = e(Styles.FlexFrame, {
                         direction = "y",

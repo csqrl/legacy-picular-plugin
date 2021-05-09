@@ -2,7 +2,7 @@ local Components = script.Components
 local Packages = script.Packages
 
 local Roact: Roact = require(Packages.Roact)
-local PluginFacade: RoactComponent = require(Components.PluginCore.PluginFacade)
+local PluginFacade: RoactComponent = require(Components.PluginFacade)
 
 local FacadeHandle: RoactTree = Roact.mount(
     Roact.createElement(PluginFacade, {

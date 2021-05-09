@@ -34,7 +34,7 @@ function Component:render()
             name = "Picular",
         }, {
             widgetToggle = e(StudioPlugin.Button, {
-                id = "main-widget-toggle",
+                id = "csqrl.picular.button.main-widget-toggle",
                 tooltip = "Find the colour of anything; apply it to everything",
                 icon = "rbxassetid://6060872355",
                 label = "Picular",
@@ -47,7 +47,7 @@ function Component:render()
             mainWidget = e(StudioPlugin.Widget, {
                 enabled = self.state.widgetActive,
                 title = "Picular",
-                id = "picular-main-widget",
+                id = "csqrl.picular.widget.main",
                 floatSize = Vector2.new(308, 450),
                 minSize = Vector2.new(298, 235),
 

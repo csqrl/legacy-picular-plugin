@@ -55,8 +55,11 @@ function Component:render()
 
             [Roact.Change.AbsoluteWindowSize] = self.onWindowSizeChanged,
         }, {
-            padding = self.state.scrollbarVisible and e(Styles.UIPadding, { 0, styles.spacing, 0, 0 }),
-            content = Roact.createFragment(self.props[Roact.Children]),
+            contentContainer = e("Frame", {
+                AutomaticSize = Enum.AutomaticSize.Y,
+                BackgroundTransparency = 1,
+                Size = UDim2.new(1, self.state.scrollbarVisible and -styles.spacing or 0, 0, 0),
+            }, self.props[Roact.Children]),
         })
     end)
 end
