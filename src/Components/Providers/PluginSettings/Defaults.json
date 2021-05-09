@@ -1,4 +1,6 @@
 {
-    "AutoUpdate": true,
-    "ColourFormat": 0
+    "AutoCheckUpdate": true,
+    "ColourFormat": 0,
+    "PatronSectionHidden": false,
+    "GlobalPalettes": []
 }
